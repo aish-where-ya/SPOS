@@ -1,0 +1,9 @@
+#define CONJUCTION 257
+#define NOUN 258
+#define PRONOUN 259
+#define VERB 260
+#define ARTICLE 261
+#define ADJECTIVE 262
+#define ADVERB 263
+#define PREPOSITION 264
+#define SPACE 265

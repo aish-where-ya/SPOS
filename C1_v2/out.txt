@@ -1,0 +1,68 @@
+
+
+1.FCFS
+2.SJF
+3.Priority
+4.RR
+Enter The Choice:
+
+1
+
+Process	Arrival Time	Execution Time	Waiting	Turnaround
+
+P4		1		9	8	8
+P5		2		2	0	0
+P3		3		7	4	4
+P2		4		6	2	2
+P1		5		5	0	0
+P6		6		3	0	0
+
+2
+
+
+1.With Arrival Time
+2.Without Arrival Time
+Enter The Choice: 
+1
+
+Process	Waiting	Turnaround
+
+P1	11	14
+P2	11	15
+P3	18	23
+P4	0	2
+P5	28	35
+
+3
+
+
+1.With Arrival Time
+2.Without Arrival Time
+Enter The Choice: 
+2
+
+Process	Start Time	Completion Time	Waiting time	Turnaround Time
+
+P3		0		7		0		7
+P1		7		12		7		12
+P2		12		18		12		18
+P4		18		27		18		27
+P5		27		29		27		29
+P6		29		32		29		32
+
+4
+
+
+1.With Arrival Time
+2.Without Arrival Time
+Enter The Choice: 
+1
+
+Process	Waiting time	Turnaround Time
+
+P4		23		32
+P5		2		4
+P3		24		31
+P2		21		27
+P1		23		28
+P6		18		21

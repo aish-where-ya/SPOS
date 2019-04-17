@@ -1,0 +1,129 @@
+
+1.Display Assembly code
+2.Display IC
+3.SYMTAB
+4.LITTAB
+5.Exit
+
+1
+ START 100 
+A DS 3
+L1 MOVER AREG B
+ ADD AREG C
+ MOVEM AREG D
+ MOVER AREG ='5'
+D EQU A+1
+L2 PRINT D
+ ORIGIN A-1
+C DC 5
+ LTORG
+ ='5'
+ ORIGIN L2+1
+ STOP
+B DC 19
+ END
+
+1.Display Assembly code
+2.Display IC
+3.SYMTAB
+4.LITTAB
+5.Exit
+
+2
+100
+103
+104
+105
+106
+107
+107
+108
+99
+100
+100
+101
+108
+109
+110
+110
+1. (AD,1) (C,100) 
+2. (DL,2) (C,3) 
+3. (IS,4) (1) (S,6)
+4. (IS,1) (1) (S,5)
+5. (IS,5) (1) (S,3)
+6. (IS,4) (1) (L,1)
+7. -- -- --
+8. (IS,10) (S,2) 
+9. (AD,3) (S,1)-1 
+10. (DL,1) (C,5) 
+11. -- -- --
+12. (DL,5)  
+13. (AD,3) (S,4)+1 
+14. (IS,0) (0) 00
+15. (DL,1) (C,19) 
+16. (AD,2) (0) 00
+
+1.Display Assembly code
+2.Display IC
+3.SYMTAB
+4.LITTAB
+5.Exit
+
+3
+100
+103
+104
+105
+106
+107
+107
+108
+99
+100
+100
+101
+108
+109
+110
+110
+
+1. A		100
+2. L1		103
+3. D		101
+4. L2		107
+5. C		99
+6. B		109
+
+1.Display Assembly code
+2.Display IC
+3.SYMTAB
+4.LITTAB
+5.Exit
+
+4
+100
+103
+104
+105
+106
+107
+107
+108
+99
+100
+100
+101
+108
+109
+110
+110
+
+1. 5 	 100
+
+1.Display Assembly code
+2.Display IC
+3.SYMTAB
+4.LITTAB
+5.Exit
+
+5

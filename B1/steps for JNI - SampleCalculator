@@ -1,0 +1,83 @@
+Steps :-
+Warning : eplace the class and header file names as required. These are general steps.
+Step 1. 
+TestCal.java content :-
+
+import java.io.*;
+
+public class TestCal {
+  public native int add(int n1,int n2) ;
+   public native int sub(int n1,int n2) ;
+  public static void main (String args[]) throws Exception {
+    BufferedReader b=new BufferedReader(new InputStreamReader(System.in));
+    System.out.println("\n Menu: \n 1.Add \n 2. sub ");
+    String ch=b.readLine();
+    
+     TestCal t = new TestCal();
+     int n1 = 0, n2 = 0;
+
+    switch(ch)
+    {
+     case "1": 
+	    	System.out.println("Enter two integer numbers:");
+	    	n1=Integer.parseInt(b.readLine());
+	    	n2=Integer.parseInt(b.readLine());
+	    	System.out.println("Addition is="+ t.add(n1,n2)) ;
+	    	break;
+	    case "2": 
+	    	System.out.println("Enter two integer numbers:");
+	    	n1=Integer.parseInt(b.readLine());
+	    	n2=Integer.parseInt(b.readLine());
+	    	System.out.println("Difference is="+t.sub(n1,n2)) ;
+	    	break;
+    }
+  }
+  static {
+    System.loadLibrary ( "TestCal" ) ;
+  }
+}
+
+Step 2:-javac TestCal.java
+Step 3:-javah -jni TestCal
+This command generates a header file TestCal.h. Create TestCal.c and copy the contents of the header file to it. Delete the extra content and add the required code.
+In the end, your TestCal.c should look like the following code.
+
+TestCal.c content :-
+
+#include <jni.h>
+#include "TestCal.h"
+#include<stdio.h>
+#include<math.h>
+
+JNIEXPORT jint JNICALL Java_TestCal_add (JNIEnv *env, jobject object, jint n1,jint n2) 
+
+{
+ 
+  jint res;
+ 
+  res=n1+n2;
+ 
+  return res;
+
+}
+
+JNIEXPORT jint JNICALL Java_TestCal_sub (JNIEnv *env, jobject object, jint n1,jint n2) 
+
+{
+ 
+  jint res;
+ 
+  res=n1-n2;
+ 
+  return res;
+
+}
+
+4. compile c- file
+
+Note: use " locate jni.h " and "locate jni_md.h" to find path
+syntax:- gcc -I" insert path of jni.h here" -I" insert path of jni_md.h here" -o libTestCal.so -shared -fPIC TestCal.c
+Eg :- gcc -I/usr/lib/jvm/java-8-oracle/include -I/usr/lib/jvm/java-8-oracle/include/linux -o libTestCal.so -shared -fPIC TestCal.c
+
+5. java -Djava.library.path=`pwd` TestCal
+

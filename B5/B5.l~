@@ -1,0 +1,15 @@
+%{
+#include<stdio.h>
+#include"y.tab.h"
+%}
+
+%%
+
+int|double|string|float|char {return datatype;}
+[0-9] {return num;}
+[a-zA-Z0-9]+ {return varname;}
+"+"|"-"|"*"|"/" {return operator;}
+"=" {return eq;}
+";" {return sc;}
+
+%%
